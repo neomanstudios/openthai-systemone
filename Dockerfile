@@ -1,9 +1,12 @@
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y build-essential \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-ENV CC=gcc
+ENV CC=/usr/bin/gcc
+
+RUN gcc --version
 
 RUN pip install --no-cache-dir "openthai-systemone[server]"
 
