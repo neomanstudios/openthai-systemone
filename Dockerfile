@@ -1,5 +1,13 @@
 FROM python:3.12-slim
 
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV CC=gcc
+
 RUN pip install --no-cache-dir "openthai-systemone[server]"
 
 ENV OPENTHAI_SYSTEMONE_MODEL=iapp/OpenThai-SystemOne
