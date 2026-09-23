@@ -12,6 +12,6 @@ RUN pip install --no-cache-dir "openthai-systemone[server]"
 
 ENV OPENTHAI_SYSTEMONE_MODEL=iapp/OpenThai-SystemOne
 
-EXPOSE 80
+EXPOSE 8000
 
-CMD ["uvicorn","openthai_systemone.server:app","--host","0.0.0.0","--port","80"]
+CMD ["uvicorn","openthai_systemone.server:app","--host","0.0.0.0","--port","8000"]
